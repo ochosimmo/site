@@ -1,19 +1,44 @@
 <html>
     <head>
-    </head>
+        <link rel="stylesheet" href="style.css"/>
+    </head>        
+
     <body>
         <iframe src="https://docs.google.com/presentation/d/14GTBAZ8RjRbKHDOTeEJZJNoh4PWs5lI_D5794pkaLRA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-        <audio controls id="song">
-          <source src="song.mp3" type="audio/mpeg">
+        <audio loop id="song">
+         
+              <source src="song.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
         </audio>
-               
-
+                <audio controls id="song2">
+          <source src="song2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+             
+                <audio controls loop id="song3">
+          <source src="song3.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+<button onclick="playSong()">Repeat</button>
         <script>
+            function playSong(){
+                setTimeout(function(){
+                    var myElement = document.getElementById("song");
+                    myElement.play()    
+                }, 5000);
+            } 
+            
             setTimeout(function(){
-                var myElement = document.getElementById("song");
+                var myElement = document.getElementById("song2");
                 myElement.play()    
             }, 5000);
+     
+            setTimeout(function(){
+                var myElement = document.getElementById("song3");
+                myElement.play()    
+            }, 5000);
+            
         </script>
+        
     </body>
 </html>
