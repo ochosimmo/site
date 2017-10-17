@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>FENZ 2018</title>
+        <link rel="icon" 
+            type="image/jpg" 
+            href="favicon.jpg"/>
+        <link rel="stylesheet" href="clndr.css"/>
+        <script src="/Firefighters%20app/js/jquery-3.2.1.min.js"></script>
+        <script src="/Firefighters%20app/js/moment.js"></script>
+        <script src="/Firefighters%20app/js/clndr.js"></script>
+        <script src="/Firefighters%20app/js/underscore.js"></script>
+    </head>
+    <body>
+        <div class="cal1">
+        </div>
+        
+        <script>
+            var myEvents = [];
+            var clndrTemplate =
+        "<div class='clndr-controls'>" +
+            "<div class='clndr-control-button'>" +
+                "<span class='clndr-previous-button'>previous</span>" +
+            "</div>" +
+            "<div class='month'><%= month %> <%= year %></div>" +
+            "<div class='clndr-control-button rightalign'>" +
+                "<span class='clndr-next-button'>next</span>" +
+            "</div>" +
+        "</div>" +
+        "<table class='clndr-table' border='0' cellspacing='0' cellpadding='0'>" +
+            "<thead>" +
+                "<tr class='header-days'>" +
+                "<% for(var i = 0; i < daysOfTheWeek.length; i++) { %>" +
+                    "<td class='header-day'><%= daysOfTheWeek[i] %></td>" +
+                "<% } %>" +
+                "</tr>" +
+            "</thead>" +
+            "<tbody>" +
+            "<% for(var i = 0; i < numberOfRows; i++){ %>" +
+                "<tr>" +
+                "<% for(var j = 0; j < 7; j++){ %>" +
+                "<% var d = j + i * 7; %>" +
+                    "<td class='<%= days[d].classes %>" +
+                        "<div class='day-contents'><%= days[d].day %></div>" +
+                    "</td>" +
+                "<% } %>" +
+                "</tr>" +
+            "<% } %>" +
+            "</tbody>" +
+        "</table>";
+            for (var i=0; i<10; i++){
+                var event = {
+                    date: new Date().setDate(i+1),
+                    type:"red"
+                }
+                myEvents.push(event);
+            }
+            $('.cal1').clndr({
+                events: myEvents,
+                template: clndrTemplate
+            });
+        </script>
+       
+        </body>
+</html>
